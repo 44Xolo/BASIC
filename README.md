@@ -136,4 +136,27 @@ BASIC/
 - Montserrat font: https://fonts.google.com/specimen/Montserrat
 - Microsoft Copilot — development and debugging assistance, used for code explanations and implementation suggestions.
 
+## Images used
+
+The website uses the following locally hosted files from the `images/` directory:
+
+| Image file | Use in the website |
+|---|---|
+| `basic-community-lab.jpg` | Home page hero image and social preview |
+| `community-collaboration.jpg` | Home gallery and Entrepreneur programme card |
+| `code-editor.jpg` | Home gallery and CODE programme card |
+| `community-tutor.jpg` | Home gallery and EDUCATION programme card |
+| `computer.jpg` | Home gallery, AI programme card and Contact page image |
+| `solar.jpg` | Home gallery |
+| `machine.jpg` | Home gallery and BUILD programme card |
+| `TOGETHER.jpg` | Home gallery, CONNECT programme card and About page social preview |
+| `solar-energy.jpg` | Home gallery and GREEN programme card |
+| `lo.png` | Home gallery and BASIC logo image |
+| `visual.jpg` | Home gallery, About page image and Enquiry page image |
+| `solar-training.jpg` | Home gallery |
+| `gallery-animation.gif` | Animated section on the Home page |
+| `favicon.svg` | Website favicon used across all pages |
+
+These local image assets support the layout and programme content shown in the site. Their source, licence or ownership should be verified before reuse outside this academic submission. The older original filenames remain in the repository only for compatibility and are no longer referenced in the HTML or JavaScript where the descriptive filenames are available.
+
 All locally hosted image files are stored in `images/`. Image licences, ownership or replacement permissions should be verified before formal publication outside this academic submission.
