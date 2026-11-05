@@ -1,0 +1,164 @@
+/* gsap.css — styles for the sections added to index.html.
+   Rule: nothing is hidden by CSS. All start states are set by JS,
+   so the page is fully readable if GSAP fails or motion is reduced. */
+
+html { overflow-x: clip; }
+
+.g-visually-hidden {
+  position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
+/* Full-bleed helper (the page's <main> is a centred .wrap) */
+.g-bleed { width: 100vw; margin-left: calc(50% - 50vw); }
+
+/* ---------- Scroll progress ---------- */
+.g-progress {
+  position: fixed; inset: 0 0 auto 0; height: 3px; z-index: 90;
+  pointer-events: none;
+}
+.g-progress span {
+  display: block; height: 100%; background: currentColor;
+  transform: scaleX(0); transform-origin: left center;
+}
+
+/* ---------- Hero image zoom needs a clipping frame ---------- */
+.hero-image { overflow: hidden; }
+.hero-image img { transform-origin: center center; will-change: transform; }
+
+/* ---------- Programmes band ---------- */
+.g-prog {
+  background: #000; color: #fff;
+  padding: clamp(3rem, 8vw, 6rem) 0;
+  display: flex; flex-direction: column; gap: clamp(1.5rem, 4vh, 3rem);
+  margin-block: clamp(2rem, 5vw, 4rem);
+}
+.g-prog.is-pinned {
+  height: 100vh; height: 100svh;
+  padding-block: 0; margin-block: 0;
+  justify-content: center; overflow: hidden;
+}
+.g-prog__head { padding-inline: clamp(1rem, 5vw, 4rem); max-width: 56rem; }
+.g-prog__head h2 {
+  color: #fff; margin: 0 0 1rem;
+  font-size: clamp(1.9rem, 4.5vw, 3.4rem); line-height: 1.05;
+}
+.g-prog__head p { margin: 0; max-width: 60ch; color: rgba(255, 255, 255, .8); }
+.g-link { color: #fff; text-decoration: underline; text-underline-offset: .25em; }
+.g-link:hover, .g-link:focus-visible { text-decoration-thickness: 2px; }
+
+.g-prog__viewport {
+  overflow-x: auto; scroll-snap-type: x proximity;
+  padding-bottom: .5rem;
+}
+.g-prog.is-pinned .g-prog__viewport { overflow: hidden; scroll-snap-type: none; }
+.g-prog__viewport:focus-visible { outline: 2px solid #fff; outline-offset: 4px; }
+
+.g-prog__track {
+  display: flex; gap: clamp(1rem, 2vw, 2rem);
+  list-style: none; margin: 0;
+  padding: 0 clamp(1rem, 5vw, 4rem);
+  width: max-content;
+}
+.g-card {
+  flex: 0 0 clamp(16rem, 30vw, 24rem);
+  min-height: clamp(15rem, 36vh, 20rem);
+  padding: clamp(1.25rem, 2.2vw, 2rem);
+  border: 1px solid rgba(255, 255, 255, .25);
+  display: flex; flex-direction: column; justify-content: space-between; gap: 2rem;
+  scroll-snap-align: start;
+}
+.g-card h3 {
+  margin: 0; color: #fff;
+  font-family: "Montserrat", "Inter", sans-serif; font-weight: 900;
+  font-size: clamp(1.8rem, 3.4vw, 2.8rem); line-height: 1; letter-spacing: -.01em;
+  overflow-wrap: anywhere;
+}
+.g-card p { margin: 0; color: rgba(255, 255, 255, .85); max-width: 32ch; }
+
+.g-prog__bar {
+  height: 2px; margin-inline: clamp(1rem, 5vw, 4rem);
+  background: rgba(255, 255, 255, .2); display: none;
+}
+.g-prog.is-pinned .g-prog__bar { display: block; }
+.g-prog__bar span {
+  display: block; height: 100%; background: #fff;
+  transform: scaleX(0); transform-origin: left center;
+}
+
+/* ---------- Process timeline ---------- */
+.g-process { padding: clamp(3rem, 8vw, 6rem) 0; }
+.g-process h2 { max-width: 20ch; margin: 0; }
+.g-steps { position: relative; margin-top: 2.5rem; max-width: 40rem; }
+.g-steps::before {                       /* quiet base rail */
+  content: ""; position: absolute; left: .95rem; top: 1rem; bottom: 1rem;
+  width: 2px; background: currentColor; opacity: .15;
+}
+.g-steps__line {                          /* rail that draws on scroll */
+  position: absolute; left: .95rem; top: 1rem; bottom: 1rem;
+  width: 2px; background: currentColor; transform-origin: top center;
+}
+.g-steps ol { list-style: none; margin: 0; padding: 0; counter-reset: step; }
+.g-step {
+  position: relative; counter-increment: step;
+  padding: 0 0 2.5rem 3.25rem;
+}
+.g-step:last-child { padding-bottom: 0; }
+.g-step::before {
+  content: counter(step);
+  position: absolute; left: 0; top: 0;
+  width: 1.9rem; height: 1.9rem; border-radius: 50%;
+  display: grid; place-items: center;
+  font-size: .85rem; font-weight: 800;
+  background: currentColor;
+  color: #fff;                            /* number colour when filled */
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0);
+  transition: background-color .3s, color .3s, border-color .3s;
+}
+/* default = filled (works without JS); JS adds .g-anim to make them wait */
+.g-steps.g-anim .g-step:not(.is-on)::before {
+  background: transparent; color: inherit;
+  border: 2px solid rgba(128, 128, 128, .5);
+}
+.g-step h3 { margin: 0 0 .35rem; font-size: 1.25rem; }
+.g-step p { margin: 0; max-width: 46ch; }
+
+/* ---------- Cities ---------- */
+.g-cities {
+  overflow: hidden;
+  padding: clamp(2.5rem, 7vw, 5rem) 0;
+}
+.g-city {
+  margin: 0; white-space: nowrap;
+  font-family: "Montserrat", "Inter", sans-serif; font-weight: 900;
+  font-size: clamp(2.6rem, 10.5vw, 9rem); line-height: .95; letter-spacing: -.02em;
+  padding-inline: clamp(1rem, 5vw, 4rem);
+}
+.g-city--b {
+  color: transparent;
+  -webkit-text-stroke: 2px currentColor;
+  /* currentColor is not allowed for color:transparent text-stroke in some browsers, so set it on the element */
+}
+.g-cities { color: inherit; }
+.g-city--b { -webkit-text-stroke-color: currentColor; }
+.g-cities__note {
+  margin: 1.5rem 0 0; padding-inline: clamp(1rem, 5vw, 4rem);
+  max-width: 52ch;
+}
+
+/* ---------- Closing call-to-action ---------- */
+.g-cta { text-align: center; padding: clamp(4rem, 10vw, 8rem) 0; }
+.g-cta h2 {
+  font-size: clamp(2rem, 6vw, 4.5rem); line-height: 1.02;
+  margin: 0 auto 1.25rem; max-width: 18ch;
+}
+.g-cta p { margin: 0 auto 2rem; max-width: 52ch; }
+.g-mask { display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: .12em; margin-bottom: -.12em; }
+.g-word { display: inline-block; will-change: transform; }
+.g-cta .btn { will-change: transform; }
+
+/* ---------- Reduced motion: no pinning, no movement ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .g-progress { display: none; }
+  .g-step::before { transition: none; }
+}
