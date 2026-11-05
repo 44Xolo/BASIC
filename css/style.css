@@ -22,3 +22,11 @@ footer{background:#000;color:#fff;margin-top:3rem;padding:2rem 0}.fgrid{display:
 @media(max-width:1024px){.four{grid-template-columns:1fr 1fr}.hero{grid-template-columns:1fr}}
 @media(max-width:768px){.nav-toggle{display:block}nav{display:none;position:absolute;top:64px;left:0;right:0;background:var(--bg);border-bottom:1px solid var(--line);padding:1rem 1.5rem}nav.open{display:flex;flex-direction:column}nav a{margin:0;padding:.6rem 0}.two,.three,.fgrid{grid-template-columns:1fr}}
 @media(max-width:480px){.four{grid-template-columns:1fr}.stats{grid-template-columns:1fr}}
+
+/* Consistent keyboard and interaction states */
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,[tabindex]:focus-visible{outline:3px solid #f6c344;outline-offset:3px}
+a:active,button:active,.btn:active{transform:translateY(1px)}
+button:disabled,input:disabled,select:disabled,textarea:disabled{cursor:not-allowed;opacity:.55}
+input[type="checkbox"]:checked,input[type="radio"]:checked{accent-color:var(--text)}
+.tab[aria-selected="true"]{background:var(--text);color:var(--bg)}
+.acc-btn[aria-expanded="true"]{border-bottom-color:#f6c344}
