@@ -64,7 +64,7 @@ var r=$("#enq-result");r.textContent=out;r.hidden=false;modal(out)})}
 var cf=$("#contact-form");
 if(cf)cf.addEventListener("submit",function(e){e.preventDefault();if(!validate(cf))return;
 var sub="[BASIC "+$("#c-type").value+"] Message from "+$("#c-name").value,body="Name: "+$("#c-name").value+"\nEmail: "+$("#c-email").value+"\nPhone: "+($("#c-phone").value||"N/A")+"\nType: "+$("#c-type").value+"\n\n"+$("#c-msg").value;
-$("#mail-pre").textContent="To: info@basiccommunity.org\nSubject: "+sub+"\n\n"+body;$("#mail-link").href="mailto:info@basiccommunity.org?subject="+encodeURIComponent(sub)+"&body="+encodeURIComponent(body);$("#mail-out").hidden=false});
+$("#mail-pre").textContent="To: Contact form\nSubject: "+sub+"\n\n"+body;$("#mail-link").href="mailto:Contact form?subject="+encodeURIComponent(sub)+"&body="+encodeURIComponent(body);$("#mail-out").hidden=false});
 
 var pb=document.createElement("div");pb.className="progress";document.body.appendChild(pb);
 addEventListener("scroll",function(){var h=document.documentElement.scrollHeight-innerHeight;pb.style.width=(h>0?scrollY/h*100:0)+"%"},{passive:true});
