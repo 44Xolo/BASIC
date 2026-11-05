@@ -123,19 +123,6 @@ BASIC/
 └── images/
 ```
 
-## References
-
-- Statistics South Africa — youth unemployment statistics: https://www.statssa.gov.za/
-- Leaflet JavaScript library: https://leafletjs.com/
-- Leaflet CDN documentation: https://unpkg.com/leaflet@1.9.4/dist/
-- OpenStreetMap data and tiles: https://www.openstreetmap.org/copyright
-- Google Maps directions URLs: https://developers.google.com/maps/documentation/urls
-- GSAP animation library: https://gsap.com/docs/v3/
-- Google Fonts: https://fonts.google.com/
-- Inter font: https://fonts.google.com/specimen/Inter
-- Montserrat font: https://fonts.google.com/specimen/Montserrat
-- Microsoft Copilot — development and debugging assistance, used for code explanations and implementation suggestions.
-
 ## Images used
 
 The website uses the following locally hosted files from the `images/` directory:
@@ -160,3 +147,23 @@ The website uses the following locally hosted files from the `images/` directory
 These local image assets support the layout and programme content shown in the site. Their source, licence or ownership should be verified before reuse outside this academic submission. The older original filenames remain in the repository only for compatibility and are no longer referenced in the HTML or JavaScript where the descriptive filenames are available.
 
 All locally hosted image files are stored in `images/`. Image licences, ownership or replacement permissions should be verified before formal publication outside this academic submission.
+
+## References
+
+Google (n.d.) *Google Fonts: Inter*. Available at: https://fonts.google.com/specimen/Inter (Accessed: 5 November 2026).
+
+Google (n.d.) *Google Fonts: Montserrat*. Available at: https://fonts.google.com/specimen/Montserrat (Accessed: 5 November 2026).
+
+Google (n.d.) *Maps URLs: Build a URL for Google Maps*. Available at: https://developers.google.com/maps/documentation/urls (Accessed: 5 November 2026).
+
+GreenSock (n.d.) *GSAP documentation*. Available at: https://gsap.com/docs/v3/ (Accessed: 5 November 2026).
+
+Leaflet (n.d.) *Leaflet: An open-source JavaScript library for mobile-friendly interactive maps*. Available at: https://leafletjs.com/ (Accessed: 5 November 2026).
+
+Microsoft (2026) *Microsoft Copilot*. Available at: https://copilot.microsoft.com/ (Accessed: 5 November 2026). Development and debugging assistance was used for code explanations and implementation suggestions.
+
+OpenStreetMap contributors (n.d.) *Copyright and licence*. Available at: https://www.openstreetmap.org/copyright (Accessed: 5 November 2026).
+
+Statistics South Africa (2026) *Labour market trends and youth unemployment statistics*. Available at: https://www.statssa.gov.za/?p=18215 (Accessed: 5 November 2026).
+
+UNPKG (n.d.) *Leaflet 1.9.4*. Available at: https://unpkg.com/leaflet@1.9.4/dist/ (Accessed: 5 November 2026).
