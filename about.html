@@ -10,9 +10,7 @@
 <meta name="robots" content="index,follow">
 <meta name="theme-color" content="#000000"><link rel="canonical" href="https://44xolo.github.io/BASIC/about.html">
 
-<!-- <link rel="canonical" href="https://YOUR-SITE-URL/about.html"> -->
-
-<!-- Open Graph / Twitter -->
+<!-- Social media preview information helps platforms display a useful title, description and image when this page is shared. -->
 <meta property="og:title" content="About BASIC | Mission, Vision &amp; Team">
 <meta property="og:description" content="Our story, mission, vision, values, governance and FAQ for BASIC Community Future Labs.">
 <meta property="og:type" content="website">
@@ -33,7 +31,7 @@
 <link rel="stylesheet" href="css/part3.css">
 <link rel="preload" as="image" href="images/visual.jpg">
 
-<!-- Structured data: About page, organisation and FAQ -->
+<!-- Search-engine structured data describes this About page, the organisation and its FAQ questions in a format search engines can understand. -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -86,8 +84,10 @@
 </head>
 
 <body>
+<!-- Keyboard and screen-reader users can select this link to bypass the navigation and move directly to the main page content. -->
 <a class="skip" href="#main">Skip to main content</a>
 
+<!-- The header contains the site identity and the main navigation links. -->
 <header>
   <div class="wrap bar">
     <a class="logo" href="index.html" aria-label="BASIC home">BASIC.</a>
@@ -102,8 +102,10 @@
   </div>
 </header>
 
+<!-- The main element contains the unique About page content. Each labelled section supports clear reading order and navigation. -->
 <main id="main" class="wrap" tabindex="-1">
 
+  <!-- Opening story: introduces how BASIC began and why the organisation exists. -->
   <section class="about-hero reveal" aria-labelledby="about-title">
     <div>
       <p class="kicker">OUR STORY</p>
@@ -113,6 +115,7 @@
     <img src="images/visual.jpg" alt="BASIC community members learning and working together" fetchpriority="high" decoding="async">
   </section>
 
+  <!-- Mission and vision cards explain the organisation's purpose and long-term goal. -->
   <section class="reveal two" aria-label="Mission and vision">
     <div class="card">
       <h3>Mission</h3>
@@ -124,6 +127,7 @@
     </div>
   </section>
 
+  <!-- The three values describe the principles that guide BASIC programmes. -->
   <section class="reveal" aria-labelledby="values-title">
     <h2 id="values-title">Core values</h2>
     <div class="three">
@@ -133,6 +137,7 @@
     </div>
   </section>
 
+  <!-- Governance cards provide the names and responsibilities of key team roles. -->
   <section class="reveal" aria-labelledby="gov-title">
     <h2 id="gov-title">Governance</h2>
     <div class="four">
@@ -143,6 +148,7 @@
     </div>
   </section>
 
+  <!-- The FAQ uses buttons and expandable panels. JavaScript updates these panels when a visitor selects a question. -->
   <section class="reveal" aria-labelledby="faq-title">
     <h2 id="faq-title">FAQ</h2>
     <div class="accordion">
@@ -167,7 +173,7 @@
 
 </main>
 
-<!-- Footer: professional contact and social information -->
+<!-- The footer repeats useful navigation and social links and identifies the organisation and student. -->
 <footer class="site-footer">
   <div class="container footer-grid">
     <div><h4>BASIC Community Future Labs</h4><p>Building Access, Skills, Innovation &amp; Community.</p><div class="footer-social" aria-label="Social media"><a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="1"></circle></svg><span>Instagram</span></a><a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 8h3V4h-3c-3 0-5 2-5 5v3H6v4h3v4h4v-4h3l1-4h-4V9c0-.6.4-1 1-1z"></path></svg><span>Facebook</span></a><a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 3h3l-7 8 8 10h-6l-5-6-6 6H2l8-9-8-9h6l5 6 5-6zm-2 16h2L8 5H6l10 14z"></path></svg><span>Twitter / X</span></a></div></div>
@@ -178,7 +184,7 @@
   <div class="container footer-bottom"><p>&copy; 2026 BASIC — All rights reserved.</p><p>WEDE5020 — Hlompho Muzi Xolo (ST10476575)</p></div>
 </footer>
 
-<!-- Lightbox (hooks unchanged for js/part3.js) -->
+<!-- The lightbox is hidden until JavaScript selects an image. Its controls allow visitors to close it or move to another image. -->
 <div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Image viewer">
   <button type="button" id="lb-x" aria-label="Close image viewer">Close</button>
   <button type="button" id="lb-p" aria-label="Previous image">&lsaquo;</button>
@@ -186,7 +192,7 @@
   <button type="button" id="lb-n" aria-label="Next image">&rsaquo;</button>
 </div>
 
-<!-- Modal (hooks unchanged for js/part3.js) -->
+<!-- The modal is hidden until JavaScript displays a short status message. Pressing its Close button removes the message. -->
 <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
   <div class="box">
     <h3 id="modal-title">Thank you</h3>
@@ -195,8 +201,10 @@
   </div>
 </div>
 
-<noscript><p style="text-align:center;padding:1rem">The FAQ answers and image viewer need JavaScript to open and close. Contact us at Contact form if you need them.</p></noscript>
+<!-- This fallback remains visible when JavaScript is unavailable, explaining which enhanced interactions will not work. -->
+<noscript><p style="text-align:center;padding:1rem">The FAQ answers and image viewer need JavaScript to open and close. Use the <a href="contact.html">contact form</a> if you need assistance.</p></noscript>
 
+<!-- The shared script controls the navigation, accordion, lightbox and modal behaviour. -->
 <script src="js/part3.js"></script>
 </body>
 </html>
