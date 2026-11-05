@@ -8,10 +8,14 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css"><link rel="stylesheet" href="css/part3.css">
 
-</head><body><a class="skip" href="#main">Skip to main content</a>
+</head><body>
+<!-- This skip link lets keyboard and screen-reader users move directly past the navigation. -->
+<a class="skip" href="#main">Skip to main content</a>
+<!-- The header contains the BASIC logo and links to every page in the website. -->
 <header><div class="wrap bar"><a class="logo" href="index.html">BASIC.</a>
 <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav">&#9776;</button>
 <nav id="nav" aria-label="Main"><a href="index.html">Home</a><a href="about.html">About</a><a href="programmes.html">Programmes</a><a href="enquiry.html" class=active aria-current=page>Enquiry</a><a href="contact.html">Contact</a></nav></div></header>
+<!-- Main content: an introductory page image, enquiry type tabs and the validated enquiry form. -->
 <main id="main" class="wrap"><section><div class="page-heading"><div><p class="kicker">JOIN BASIC</p><h1>Enquiry</h1><p>Volunteer your time, sponsor a programme or build a lasting partnership.</p></div><img src="images/visual.jpg" alt="Community members planning a BASIC programme"></div><div class="tabs" role="tablist"><button class="tab active" data-type="Volunteer">Volunteer</button><button class="tab" data-type="Sponsor">Sponsor</button><button class="tab" data-type="Partnership">Partnership</button></div>
 <form id="enq-form" class="form" novalidate><div class="fg"><label for="e-name">Full name</label><input id="e-name" name="e-name" type="text" data-rules="required|min:2|max:80" required aria-describedby="e-name-e"><span class="field-error" id="e-name-e" aria-live="polite"></span></div><div class="fg"><label for="e-email">Email</label><input id="e-email" name="e-email" type="email" data-rules="required|email" required aria-describedby="e-email-e"><span class="field-error" id="e-email-e" aria-live="polite"></span></div><div class="fg"><label for="e-phone">Phone (SA)</label><input id="e-phone" name="e-phone" type="tel" data-rules="required|sa-phone" placeholder="082 123 4567" aria-describedby="e-phone-e"><span class="field-error" id="e-phone-e" aria-live="polite"></span></div>
 <div class="fg"><label for="e-prog">Programme</label><select id="e-prog"><option value="code">code</option><option value="ai">ai</option><option value="green">green</option><option value="build">build</option><option value="entrepreneur">entrepreneur</option><option value="education">education</option><option value="connect">connect</option></select></div>
@@ -21,7 +25,7 @@
 <div class="fg"><label for="s-tier">Tier</label><select id="s-tier"><option value="0.7">Community</option><option value="1" selected>Standard</option><option value="1.5">Premium</option></select></div></div>
 <div class="fg"><label for="e-msg">Message (10-500 characters)</label><textarea id="e-msg" rows="5" data-rules="required|min:10|max:500" aria-describedby="e-msg-e"></textarea><span class="field-error" id="e-msg-e" aria-live="polite"></span></div>
 <button class="btn" type="submit">Submit enquiry</button><pre id="enq-result" class="form-result" hidden></pre></form></section></main>
-<!-- Footer: professional contact and social information -->
+<!-- The footer repeats useful navigation, contact links and site ownership information. -->
 <footer class="site-footer">
   <div class="container footer-grid">
     <div><h4>BASIC Community Future Labs</h4><p>Building Access, Skills, Innovation &amp; Community.</p>
@@ -37,7 +41,9 @@
   </div>
   <div class="container footer-bottom"><p>&copy; 2026 BASIC — All rights reserved.</p><p>WEDE5020 — Hlompho Muzi Xolo (ST10476575)</p></div>
 </footer>
+<!-- These overlays remain hidden until JavaScript opens the image viewer or feedback modal. -->
 <div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Image viewer"><button id="lb-x">Close</button><button id="lb-p">&lsaquo;</button><figure><img id="lb-img" alt=""><figcaption id="lb-cap"></figcaption></figure><button id="lb-n">&rsaquo;</button></div>
 <div class="modal" id="modal" role="dialog" aria-modal="true"><div class="box"><h3>Thank you</h3><p id="modal-text"></p><button class="btn" id="modal-x">Close</button></div></div>
+<!-- This shared script controls tabs, conditional form fields, validation and the submitted response. -->
 <script src="js/part3.js"></script>
 </body></html>

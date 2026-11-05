@@ -8,17 +8,21 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css"><link rel="stylesheet" href="css/part3.css">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
-</head><body><a class="skip" href="#main">Skip to main content</a>
+</head><body>
+<!-- This skip link lets keyboard and screen-reader users bypass the navigation. -->
+<a class="skip" href="#main">Skip to main content</a>
+<!-- The header contains the BASIC logo and the main navigation links. -->
 <header><div class="wrap bar"><a class="logo" href="index.html">BASIC.</a>
 <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav">&#9776;</button>
 <nav id="nav" aria-label="Main"><a href="index.html">Home</a><a href="about.html">About</a><a href="programmes.html">Programmes</a><a href="enquiry.html">Enquiry</a><a href="contact.html" class=active aria-current=page>Contact</a></nav></div></header>
+<!-- Main content: the lab locations and maps, followed by the validated contact form. -->
 <main id="main" class="wrap"><section><div class="page-heading"><div><p class="kicker">VISIT OR WRITE</p><h1>Contact</h1><p>Meet our teams in Johannesburg and Durban, or send us a message.</p></div><img src="images/computer.jpg" alt="Learners at work in a BASIC community coding lab"></div><div class="two"><div><h3>Johannesburg Lab, Dobsonville</h3><div id="map-jhb" class="map"></div><a class="btn ghost" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=-26.2237,27.8585">Get directions</a></div>
 <div><h3>Durban Lab, Umlazi</h3><div id="map-dbn" class="map"></div><a class="btn ghost" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=-29.9675,30.8829">Get directions</a></div></div>
 <form id="contact-form" class="form" novalidate><h2>Send a message</h2><div class="fg"><label for="c-name">Name</label><input id="c-name" name="c-name" type="text" data-rules="required|min:2" required aria-describedby="c-name-e"><span class="field-error" id="c-name-e" aria-live="polite"></span></div><div class="fg"><label for="c-email">Email</label><input id="c-email" name="c-email" type="email" data-rules="required|email" required aria-describedby="c-email-e"><span class="field-error" id="c-email-e" aria-live="polite"></span></div><div class="fg"><label for="c-phone">Phone (optional)</label><input id="c-phone" name="c-phone" type="tel" data-rules="sa-phone"  aria-describedby="c-phone-e"><span class="field-error" id="c-phone-e" aria-live="polite"></span></div>
 <div class="fg"><label for="c-type">Type</label><select id="c-type"><option>General</option><option>Volunteer</option><option>Sponsor</option><option>Partnership</option></select></div>
 <div class="fg"><label for="c-msg">Message</label><textarea id="c-msg" rows="5" data-rules="required|min:10|max:500" aria-describedby="c-msg-e"></textarea><span class="field-error" id="c-msg-e" aria-live="polite"></span></div>
 <button class="btn" type="submit">Compile email</button><div id="mail-out" class="form-result" hidden><pre id="mail-pre"></pre><a class="btn ghost" id="mail-link" href="#">Open in email app</a></div></form></section></main>
-<!-- Footer: professional contact and social information -->
+<!-- The footer repeats useful navigation, contact links and site ownership information. -->
 <footer class="site-footer">
   <div class="container footer-grid">
     <div><h4>BASIC Community Future Labs</h4><p>Building Access, Skills, Innovation &amp; Community.</p>
@@ -34,7 +38,11 @@
   </div>
   <div class="container footer-bottom"><p>&copy; 2026 BASIC — All rights reserved.</p><p>WEDE5020 — Hlompho Muzi Xolo (ST10476575)</p></div>
 </footer>
+<!-- These overlays remain hidden until JavaScript opens the image viewer or feedback modal. -->
 <div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Image viewer"><button id="lb-x">Close</button><button id="lb-p">&lsaquo;</button><figure><img id="lb-img" alt=""><figcaption id="lb-cap"></figcaption></figure><button id="lb-n">&rsaquo;</button></div>
 <div class="modal" id="modal" role="dialog" aria-modal="true"><div class="box"><h3>Thank you</h3><p id="modal-text"></p><button class="btn" id="modal-x">Close</button></div></div>
-<script src="js/part3.js"></script><script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script><script src="js/maps.js"></script>
+<!-- This shared script validates the contact form and compiles the email preview. -->
+<script src="js/part3.js"></script>
+<!-- Leaflet provides the maps; maps.js places the two lab markers and their popups. -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script><script src="js/maps.js"></script>
 </body></html>
