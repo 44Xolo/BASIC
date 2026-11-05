@@ -1,9 +1,9 @@
 # BASIC Community Future Labs Website
 
-**Student:** Hlompho Muzi Xolo  
-**Student number:** ST10476575  
-**Module:** WEDE5020 — Web Development Introduction  
-**Assessment:** Portfolio of Evidence, Part 3
+- **Student:** Hlompho Muzi Xolo
+- **Student number:** ST10476575
+- **Module:** WEDE5020 — Web Development Introduction
+- **Assessment:** Portfolio of Evidence, Part 3
 
 ## Project overview
 
