@@ -148,6 +148,15 @@ These local image assets support the layout and programme content shown in the s
 
 All locally hosted image files are stored in `images/`. Image licences, ownership or replacement permissions should be verified before formal publication outside this academic submission.
 
+## Dated changelog
+
+The detailed development history is recorded in [`CHANGELOG.md`](CHANGELOG.md). Key dated entries are:
+
+- **5 November 2026 — Part 3 submission preparation:** Added programme search, filtering, sorting, forms, maps, tabs, modal feedback, lightbox controls, animations and deployment documentation.
+- **5 November 2026 — Documentation and feedback corrections:** Added the project changelog, rewrote the README, documented image usage, added Harvard Anglia references, removed placeholders, and corrected image filenames.
+- **5 November 2026 — Part 2 feedback changes:** Recorded removal of layout tables, keyboard and focus improvements, semantic and SEO updates, and dated submission documentation.
+- **5 November 2026 — Initial website implementation:** Added the five-page BASIC website and responsive styles before final Part 3 enhancements.
+
 ## References
 
 Google (n.d.) *Google Fonts: Inter*. Available at: https://fonts.google.com/specimen/Inter (Accessed: 5 November 2026).

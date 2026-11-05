@@ -9,14 +9,16 @@
 - Added references, deployment documentation, canonical GitHub Pages URL and repository documentation.
 - Verified repository and deployment instructions through GitHub.
 
-## 2026-10-30 — Part 2 feedback implementation
+## 2026-11-05 — Part 2 feedback implementation
 - Removed HTML table-based layout from the complete site; CSS Grid/Flexbox was retained for layout.
-- Expanded hover and keyboard-focus styling across navigation, buttons, cards and interactive controls.
-- Improved image alt text, semantic headings and skip navigation.
+- Expanded hover, active, focus-visible and disabled styling across navigation, buttons, cards and interactive controls.
+- Improved image alt text, semantic headings, descriptive image filenames and skip navigation.
 - Added descriptive meta titles and descriptions to every page.
 - Documented responsive breakpoints at 1024px, 768px and 480px.
+- Replaced placeholder deployment-domain instructions with the GitHub Pages URL.
+- Added dated README and changelog documentation of the feedback corrections.
 
-## 2026-10-20 — Initial Part 2 implementation
+## 2026-11-05 — Initial website implementation
 - Created the five-page BASIC Community Future Labs website.
 - Added consistent navigation, footer, organisation content and programme information.
 - Added initial responsive CSS and JavaScript interactions.
