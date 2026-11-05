@@ -14,7 +14,8 @@ The project is implemented using HTML5, CSS, vanilla JavaScript, Leaflet/OpenStr
 ## Live website and repository
 
 - **Live URL:** https://44xolo.github.io/BASIC/
-- **GitHub repository:** https://github.com/44Xolo/BASIC
+- **Part 3 GitHub repository:** https://github.com/44Xolo/BASIC
+- **Part 2 repository:** https://github.com/EMKNDW/wede5020-g2-2026-formative-2-part-2-44xolo
 - **Deployment:** GitHub Pages, deployed from the `main` branch and the repository root
 
 ## Website pages
@@ -83,13 +84,18 @@ Before submission, test the following:
 
 ### Part 2 feedback addressed
 
-- Removed HTML layout tables and used CSS Grid and Flexbox for page layout.
-- Added dated documentation of changes in `CHANGELOG.md`.
-- Added consistent hover, focus, active and disabled states to interactive elements.
-- Improved alt text and descriptive image filenames.
-- Added unique titles and descriptive meta information to all pages.
-- Improved semantic structure, skip navigation and keyboard usability.
-- Removed placeholder deployment instructions and other placeholder values from production pages.
+This Part 3 repository continues the work submitted in the [Part 2 formative repository](https://github.com/EMKNDW/wede5020-g2-2026-formative-2-part-2-44xolo). The following Part 2 feedback was reviewed and addressed where relevant:
+
+- Removed HTML layout tables from page content and retained CSS Grid and Flexbox for layout; no `<table>` element is used for website structure.
+- Replaced vague commit or project documentation with dated, specific descriptions of each change in `CHANGELOG.md` and the README.
+- Added a clearly dated Part 2 changelog section documenting the feedback response and its implementation.
+- Added consistent hover, keyboard focus-visible, active and disabled states across navigation, buttons, tabs and other interactive elements.
+- Improved descriptive `alt` text and renamed unclear image filenames such as generic, duplicated or misspelled names.
+- Added unique page titles, page descriptions and relevant keyword metadata to all HTML pages.
+- Improved semantic HTML structure, heading order, skip navigation and keyboard usability.
+- Added or improved a reference list, including the information source, libraries, fonts, map provider and AI-development assistance used.
+- Removed placeholders and incorrect deployment instructions, including the commented live-URL instructions, from production HTML.
+- Updated the sitemap and robots directive to the final GitHub Pages domain and added canonical links to the final pages.
 
 ### Part 3 documentation
 
@@ -154,7 +160,8 @@ The detailed development history is recorded in [`CHANGELOG.md`](CHANGELOG.md). 
 
 - **5 November 2026 — Part 3 submission preparation:** Added programme search, filtering, sorting, forms, maps, tabs, modal feedback, lightbox controls, animations and deployment documentation.
 - **5 November 2026 — Documentation and feedback corrections:** Added the project changelog, rewrote the README, documented image usage, added Harvard Anglia references, removed placeholders, and corrected image filenames.
-- **5 November 2026 — Part 2 feedback changes:** Recorded removal of layout tables, keyboard and focus improvements, semantic and SEO updates, and dated submission documentation.
+- **5 November 2026 — Part 2 feedback changes:** Linked the original Part 2 repository, recorded removal of layout tables, commit and changelog improvements, keyboard and focus improvements, semantic and SEO updates, image corrections and reference additions.
+- **5 November 2026 — Feedback repository continuity:** Added the original Part 2 repository URL and identified the exact feedback areas carried forward or corrected for Part 3.
 - **5 November 2026 — Initial website implementation:** Added the five-page BASIC website and responsive styles before final Part 3 enhancements.
 
 ## References

@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-11-05 — Feedback repository continuity
+- Linked this Part 3 repository to the original Part 2 repository at https://github.com/EMKNDW/wede5020-g2-2026-formative-2-part-2-44xolo.
+- Reviewed the Part 2 feedback and documented all completed corrections in `README.md` and this changelog.
+- Recorded corrections for layout tables, commit and changelog documentation, interactive-state styling, metadata, image names and alt text, semantic accessibility, references and deployment placeholders.
+
 ## 2026-11-05 — Part 3 submission preparation
 - Added searchable, filterable and sortable programme data.
 - Added enquiry calculations and validated form responses.
