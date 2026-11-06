@@ -20,7 +20,7 @@
 <!-- The title is the text on the browser tab and the big blue link in Google results.
      &amp; is just how you write an "&" safely inside HTML. -->
 
-<meta name="description" content="Community Future Labs tackling youth unemployment with 7 hands-on programmes in Johannesburg and Durban.">
+<meta name="description" content="BASIC Community Future Labs offers seven practical programmes in Johannesburg and Durban, helping young South Africans build digital, technical and business skills.">
 <!-- The little summary Google shows under the title in search results. -->
 
 <meta name="keywords" content="BASIC, community labs, future labs, youth unemployment, coding, AI literacy, solar training, entrepreneurship, South Africa, Johannesburg, Durban">
@@ -41,12 +41,12 @@
 <!-- These tags control how the link looks when someone shares it on WhatsApp, Facebook, X and so on.
      Think of it as the preview card that pops up under the link. -->
 <meta property="og:title" content="BASIC | Building Access, Skills, Innovation &amp; Community">
-<meta property="og:description" content="Community Future Labs tackling youth unemployment with 7 hands-on programmes in Johannesburg and Durban.">
+<meta property="og:description" content="BASIC Community Future Labs offers seven practical programmes in Johannesburg and Durban, helping young South Africans build digital, technical and business skills.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="BASIC">
 <meta property="og:locale" content="en_ZA">
 <!-- en_ZA = English as spoken in South Africa. -->
-<meta property="og:image" content="images/basic-community-lab.jpg">
+<meta property="og:image" content="https://44xolo.github.io/BASIC/images/basic-community-lab.jpg">
 <meta property="og:image:alt" content="BASIC learners collaborating in a community future lab">
 <!-- The picture shown in the share card, plus a text description for people who can't see it. -->
 <meta name="twitter:card" content="summary_large_image">
@@ -153,7 +153,7 @@
 
     <div class="stats" role="list" aria-label="Key statistics">
       <!-- Four number boxes. role="list" tells screen readers this is a list even though I used divs. -->
-      <div class="dark" role="listitem"><b data-count="60.9" data-dec="1" data-suffix="%">60.9%</b><span>Youth unemployment, Q1 2026 (<a href="https://www.statssa.gov.za/?p=18215" target="_blank" rel="noopener noreferrer">Stats SA</a>)</span></div>
+      <div class="dark" role="listitem"><b data-count="60.9" data-dec="1" data-suffix="%">60.9%</b><span>Youth unemployment, Q1 2026 (<a href="https://www.statssa.gov.za/?p=18215" target="_blank" rel="noopener noreferrer">Statistics South Africa, 2026</a>)</span></div>
       <!-- The data-count, data-dec and data-suffix bits are instructions for my JavaScript:
            count up to 60.9, show 1 decimal place, and put a % at the end.
            The real number is already typed inside the tag, so if JavaScript fails you still see it.
@@ -288,7 +288,8 @@
 <!-- The lightbox is the dark pop-up that shows a gallery photo big when you click it.
      It stays hidden until clicked. "Hooks" just means the ids (lb, lb-x, lb-p, lb-n, lb-img, lb-cap)
      that part3.js looks for. If I rename any of them, the lightbox breaks, so leave them alone. -->
-<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Image viewer">
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="lb-title">
+  <h2 id="lb-title" class="g-visually-hidden">Image viewer</h2>
   <button type="button" id="lb-x" aria-label="Close image viewer">Close</button>
   <button type="button" id="lb-p" aria-label="Previous image">&lsaquo;</button>
   <!-- lb-p = previous photo (the left arrow) -->

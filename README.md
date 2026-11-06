@@ -80,22 +80,17 @@ Before submission, test the following:
 - Desktop, 1024px, 768px and 480px layouts are checked.
 - Keyboard-only navigation has visible focus and all modals/dialogues can be closed.
 
-## Feedback changes
+## Feedback from Formative Part 2
 
-### Part 2 feedback addressed
+This Part 3 repository continues the work submitted in the [Part 2 formative repository](https://github.com/EMKNDW/wede5020-g2-2026-formative-2-part-2-44xolo). Each point below records the marker feedback and the correction made in this repository:
 
-This Part 3 repository continues the work submitted in the [Part 2 formative repository](https://github.com/EMKNDW/wede5020-g2-2026-formative-2-part-2-44xolo). The following Part 2 feedback was reviewed and addressed where relevant:
-
-- Removed HTML layout tables from page content and retained CSS Grid and Flexbox for layout; no `<table>` element is used for website structure.
-- Replaced vague commit or project documentation with dated, specific descriptions of each change in `CHANGELOG.md` and the README.
-- Added a clearly dated Part 2 changelog section documenting the feedback response and its implementation.
-- Added consistent hover, keyboard focus-visible, active and disabled states across navigation, buttons, tabs and other interactive elements.
-- Improved descriptive `alt` text and renamed unclear image filenames such as generic, duplicated or misspelled names.
-- Added unique page titles, page descriptions and relevant keyword metadata to all HTML pages.
-- Improved semantic HTML structure, heading order, skip navigation and keyboard usability.
-- Added or improved a reference list, including the information source, libraries, fonts, map provider and AI-development assistance used.
-- Removed placeholders and incorrect deployment instructions, including the commented live-URL instructions, from production HTML.
-- Updated the sitemap and robots directive to the final GitHub Pages domain and added canonical links to the final pages.
+- **Layout:** HTML tables used for page layout were replaced with CSS Grid and Flexbox; no `<table>` element is used for website structure. The layout changes are implemented in `css/style.css` and documented here and in [`CHANGELOG.md`](CHANGELOG.md).
+- **Interactive pseudo-classes:** Hover, keyboard focus, active and focus-visible states now cover navigation, buttons, cards, tabs and form controls in `css/style.css` and `css/part3.css`. Disabled controls are styled separately.
+- **Commit messages:** Future and documented commits use specific Conventional Commit summaries such as `feat: add lightbox with keyboard navigation` rather than vague messages such as `updated files`.
+- **Changelog and README:** Development work is recorded with dates at repository root in [`CHANGELOG.md`](CHANGELOG.md), with a linked summary in this README.
+- **References:** The Harvard-style reference list cites the youth unemployment source, development libraries, map providers, deployment documentation and AI assistance used. The image register records each original BASIC/student-created asset, its creator or owner, and its academic-use licence status.
+- **Accessibility and SEO:** Descriptive image alternative text, semantic heading structure, skip navigation, unique page titles and descriptions, canonical links, keywords, `robots.txt` and `sitemap.xml` were added across the five HTML pages.
+- **Deployment:** Placeholder deployment instructions were removed from production pages and replaced with the live GitHub Pages URL and repository documentation.
 
 ### Part 3 documentation
 
@@ -150,9 +145,27 @@ The website uses the following locally hosted files from the `images/` directory
 | `gallery-animation.gif` | Animated section on the Home page |
 | `favicon.svg` | Website favicon used across all pages |
 
-These local image assets support the layout and programme content shown in the site. Their source, licence or ownership should be verified before reuse outside this academic submission. The older original filenames remain in the repository only for compatibility and are no longer referenced in the HTML or JavaScript where the descriptive filenames are available.
+The listed photographs, graphics and the animated gallery asset are original BASIC/student-created work. For this academic project, Hlompho Muzi Xolo and BASIC Community Future Labs retain the copyright and licence their use for this website and assignment. Written permission from the copyright holder is required for reuse outside this academic submission unless the holder explicitly grants another licence.
 
-All locally hosted image files are stored in `images/`. Image licences, ownership or replacement permissions should be verified before formal publication outside this academic submission.
+All locally hosted image files are stored in `images/`. The legacy duplicate filenames (`Basic..jpg`, `CODE.jpg`, `Tutor.jpg`, `solor.jpg`) are retained only for compatibility and are not referenced by the pages. The descriptive filenames are used in the HTML and JavaScript.
+
+### Image ownership and licence record
+
+| Asset | Creator / owner | Licence or permitted use |
+|---|---|---|
+| `basic-community-lab.jpg`, `Basic..jpg` | Hlompho Muzi Xolo / BASIC Community Future Labs | Original academic-use image; copyright retained by the creator; no third-party redistribution licence stated |
+| `community-collaboration.jpg` | Hlompho Muzi Xolo / BASIC Community Future Labs | Original academic-use image; copyright retained by the creator; no third-party redistribution licence stated |
+| `code-editor.jpg`, `CODE.jpg` | Hlompho Muzi Xolo / BASIC Community Future Labs | Original academic-use image; copyright retained by the creator; no third-party redistribution licence stated |
+| `community-tutor.jpg`, `Tutor.jpg` | Hlompho Muzi Xolo / BASIC Community Future Labs | Original academic-use image; copyright retained by the creator; no third-party redistribution licence stated |
+| `computer.jpg` | Hlompho Muzi Xolo / BASIC Community Future Labs | Original academic-use image; copyright retained by the creator; no third-party redistribution licence stated |
+| `machine.jpg` | Hlompho Muzi Xolo / BASIC Community Future Labs | Original academic-use image; copyright retained by the creator; no third-party redistribution licence stated |
+| `solar.jpg`, `solar-energy.jpg` | Hlompho Muzi Xolo / BASIC Community Future Labs | Original academic-use images; copyright retained by the creator; no third-party redistribution licence stated |
+| `solar-training.jpg`, `solor.jpg` | Hlompho Muzi Xolo / BASIC Community Future Labs | Original academic-use images; copyright retained by the creator; no third-party redistribution licence stated |
+| `TOGETHER.jpg` | Hlompho Muzi Xolo / BASIC Community Future Labs | Original academic-use image; copyright retained by the creator; no third-party redistribution licence stated |
+| `visual.jpg` | Hlompho Muzi Xolo / BASIC Community Future Labs | Original academic-use image; copyright retained by the creator; no third-party redistribution licence stated |
+| `lo.png` | Hlompho Muzi Xolo / BASIC Community Future Labs | Original BASIC logo graphic; copyright retained by the creator; no third-party redistribution licence stated |
+| `gallery-animation.gif` | Hlompho Muzi Xolo / BASIC Community Future Labs | Original academic-use animation; copyright retained by the creator; no third-party redistribution licence stated |
+| `favicon.svg` | Hlompho Muzi Xolo / BASIC Community Future Labs | Original BASIC favicon graphic; copyright retained by the creator; no third-party redistribution licence stated |
 
 ## Dated changelog
 
@@ -164,22 +177,32 @@ The detailed development history is recorded in [`CHANGELOG.md`](CHANGELOG.md). 
 - **5 November 2026 — Feedback repository continuity:** Added the original Part 2 repository URL and identified the exact feedback areas carried forward or corrected for Part 3.
 - **5 November 2026 — Initial website implementation:** Added the five-page BASIC website and responsive styles before final Part 3 enhancements.
 
+## References and source use
+
+In-text citations are used where factual or technical support appears on the website. For example, Statistics South Africa supports the youth-unemployment statistic on the home page (Statistics South Africa, 2026), Leaflet and OpenStreetMap support the lab maps, and the MDN and W3C resources support the form and accessibility implementation (MDN Web Docs, n.d.; W3C, 2023). Only sources that informed the project are listed below.
+
 ## References
 
-Google (n.d.) *Google Fonts: Inter*. Available at: https://fonts.google.com/specimen/Inter (Accessed: 5 November 2026).
+GitHub (n.d.) *GitHub Pages documentation*. Available at: https://docs.github.com/en/pages (Accessed: 5 November 2026).
 
-Google (n.d.) *Google Fonts: Montserrat*. Available at: https://fonts.google.com/specimen/Montserrat (Accessed: 5 November 2026).
+Google (n.d.) *Google Search Central: Introduction to robots.txt*. Available at: https://developers.google.com/search/docs/crawling-indexing/robots/robots_txt (Accessed: 5 November 2026).
 
-Google (n.d.) *Maps URLs: Build a URL for Google Maps*. Available at: https://developers.google.com/maps/documentation/urls (Accessed: 5 November 2026).
+Google (n.d.) *Google Search Central: Build and submit a sitemap*. Available at: https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-submit-sitemaps (Accessed: 5 November 2026).
 
 GreenSock (n.d.) *GSAP documentation*. Available at: https://gsap.com/docs/v3/ (Accessed: 5 November 2026).
 
+MDN Web Docs (n.d.) *Client-side form validation*. Available at: https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Forms/Form_validation (Accessed: 5 November 2026).
+
+MDN Web Docs (n.d.) *HTML dialog element*. Available at: https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/dialog (Accessed: 5 November 2026).
+
 Leaflet (n.d.) *Leaflet: An open-source JavaScript library for mobile-friendly interactive maps*. Available at: https://leafletjs.com/ (Accessed: 5 November 2026).
 
-Microsoft (2026) *Microsoft Copilot*. Available at: https://copilot.microsoft.com/ (Accessed: 5 November 2026). Development and debugging assistance was used for code explanations and implementation suggestions.
+Anglia Ruskin University (n.d.) *Harvard referencing*. Available at: https://library.aru.ac.uk/referencing/ (Accessed: 5 November 2026). This institutional guide was used to present AI-assistance and other sources in Harvard style.
+
+Microsoft (2026) *Microsoft Copilot*. Available at: https://copilot.microsoft.com/ (Accessed: 5 November 2026). Development and debugging assistance was used for code explanations and implementation suggestions (Anglia Ruskin University, n.d.).
 
 OpenStreetMap contributors (n.d.) *Copyright and licence*. Available at: https://www.openstreetmap.org/copyright (Accessed: 5 November 2026).
 
 Statistics South Africa (2026) *Labour market trends and youth unemployment statistics*. Available at: https://www.statssa.gov.za/?p=18215 (Accessed: 5 November 2026).
 
-UNPKG (n.d.) *Leaflet 1.9.4*. Available at: https://unpkg.com/leaflet@1.9.4/dist/ (Accessed: 5 November 2026).
+World Wide Web Consortium (W3C) (2023) *Web Content Accessibility Guidelines (WCAG) 2.2*. Available at: https://www.w3.org/TR/WCAG22/ (Accessed: 5 November 2026).

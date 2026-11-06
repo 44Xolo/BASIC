@@ -22,13 +22,14 @@ function modal(t){$("#modal-text").textContent=t;$("#modal").classList.add("open
 $("#modal-x").addEventListener("click",function(){$("#modal").classList.remove("open")});
 $("#modal").addEventListener("click",function(e){if(e.target.id==="modal")e.target.classList.remove("open")});
 /* lightbox */
-var imgs=$$(".gallery-grid img"),cur=0;
-function show(i){cur=(i+imgs.length)%imgs.length;$("#lb-img").src=imgs[cur].src;$("#lb-img").alt=imgs[cur].alt;$("#lb-cap").textContent=imgs[cur].alt;$("#lb").classList.add("open")}
-imgs.forEach(function(im,i){im.addEventListener("click",function(){show(i)})});
-var gallery=$(".gallery-grid");
-/* Keep only the six unique images in the HTML gallery; repeated clones are not added. */
-$("#lb-x").addEventListener("click",function(){$("#lb").classList.remove("open")});$("#lb-p").addEventListener("click",function(){show(cur-1)});$("#lb-n").addEventListener("click",function(){show(cur+1)});
-document.addEventListener("keydown",function(e){if(e.key==="Escape"){$("#lb").classList.remove("open");$("#modal").classList.remove("open")}if($("#lb").classList.contains("open")){if(e.key==="ArrowRight")show(cur+1);if(e.key==="ArrowLeft")show(cur-1)}});
+var imgs=$$(".gallery-grid img"),cur=0,lastGalleryFocus=null;
+var lb=$("#lb");
+function show(i){if(!lb||!imgs.length)return;cur=(i+imgs.length)%imgs.length;$("#lb-img").src=imgs[cur].src;$("#lb-img").alt=imgs[cur].alt;$("#lb-cap").textContent=imgs[cur].alt}
+function openLightbox(i,trigger){if(!lb)return;lastGalleryFocus=trigger||document.activeElement;show(i);lb.classList.add("open");lb.setAttribute("aria-hidden","false");document.body.classList.add("lightbox-open");$("#lb-x").focus()}
+function closeLightbox(){if(!lb)return;lb.classList.remove("open");lb.setAttribute("aria-hidden","true");document.body.classList.remove("lightbox-open");if(lastGalleryFocus&&lastGalleryFocus.focus)lastGalleryFocus.focus()}
+imgs.forEach(function(im,i){im.setAttribute("tabindex","0");im.setAttribute("role","button");im.setAttribute("aria-haspopup","dialog");im.setAttribute("aria-label","Open image: "+im.alt);im.addEventListener("click",function(){openLightbox(i,im)});im.addEventListener("keydown",function(e){if(e.key=== "Enter"||e.key=== " "){e.preventDefault();openLightbox(i,im)}})});
+if(lb){$("#lb-x").addEventListener("click",closeLightbox);$("#lb-p").addEventListener("click",function(){show(cur-1)});$("#lb-n").addEventListener("click",function(){show(cur+1)});lb.addEventListener("click",function(e){if(e.target===lb)closeLightbox()});}
+document.addEventListener("keydown",function(e){var modalEl=$("#modal");if(lb&&lb.classList.contains("open")){if(e.key=== "Escape"){e.preventDefault();closeLightbox()}else if(e.key==="ArrowRight"){e.preventDefault();show(cur+1)}else if(e.key=== "ArrowLeft"){e.preventDefault();show(cur-1)}else if(e.key=== "Tab"){var controls=$$("button:not([disabled]), [href], [tabindex]:not([tabindex='-1'])",lb).filter(function(el){return el.offsetParent!==null});if(controls.length){var first=controls[0],last=controls[controls.length-1];if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus()}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus()}}} }else if(e.key=== "Escape"&&modalEl){modalEl.classList.remove("open")}});
 /* programmes */
 var list=$("#programme-list");
 if(list){var cat=$("#prog-cat");["All"].concat(DATA.map(function(d){return d.cat}).filter(function(v,i,a){return a.indexOf(v)===i})).forEach(function(c){cat.add(new Option(c,c))});
@@ -59,12 +60,12 @@ if(type==="Volunteer"){var d=new Date();d.setMonth(d.getMonth()+1);out="Thank yo
 else if(type==="Sponsor"){var base=+$("#s-type").value,m=Math.min(36,Math.max(1,parseInt($("#s-months").value)||12)),t=+$("#s-tier").value,tot=Math.round(base*m/12*t);
 out="Sponsorship estimate for "+n+"\nBase: R"+base.toLocaleString("en-ZA")+"/year | "+m+" months | tier x"+t+"\nTotal: R"+tot.toLocaleString("en-ZA")+"\n"+(m>=6?"Availability: immediate":"Availability: short-term, limited slots")}
 else out="Partnership enquiry received from "+n+".\nOur Partnerships Lead will reply within 48 hours at "+$("#e-email").value+".";
-var r=$("#enq-result");r.textContent=out;r.hidden=false;modal(out)})}
+var r=$("#enq-result");r.textContent=out;r.hidden=false;r.focus();modal(out)})}
 /* contact */
 var cf=$("#contact-form");
 if(cf)cf.addEventListener("submit",function(e){e.preventDefault();if(!validate(cf))return;
-var sub="[BASIC "+$("#c-type").value+"] Message from "+$("#c-name").value,body="Name: "+$("#c-name").value+"\nEmail: "+$("#c-email").value+"\nPhone: "+($("#c-phone").value||"N/A")+"\nType: "+$("#c-type").value+"\n\n"+$("#c-msg").value;
-$("#mail-pre").textContent="To: Contact form\nSubject: "+sub+"\n\n"+body;$("#mail-link").href="mailto:Contact form?subject="+encodeURIComponent(sub)+"&body="+encodeURIComponent(body);$("#mail-out").hidden=false});
+var recipient="info@basicfuturelabs.org",sub="[BASIC "+$("#c-type").value+"] Message from "+$("#c-name").value,body="Name: "+$("#c-name").value+"\nEmail: "+$("#c-email").value+"\nPhone: "+($("#c-phone").value||"N/A")+"\nType: "+$("#c-type").value+"\n\n"+$("#c-msg").value;
+$("#mail-pre").textContent="To: "+recipient+"\nSubject: "+sub+"\n\n"+body;$("#mail-link").href="mailto:"+recipient+"?subject="+encodeURIComponent(sub)+"&body="+encodeURIComponent(body);$("#mail-out").hidden=false;$("#mail-out").focus()});
 
 var pb=document.createElement("div");pb.className="progress";document.body.appendChild(pb);
 addEventListener("scroll",function(){var h=document.documentElement.scrollHeight-innerHeight;pb.style.width=(h>0?scrollY/h*100:0)+"%"},{passive:true});
