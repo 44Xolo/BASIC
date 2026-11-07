@@ -20,7 +20,7 @@ if("IntersectionObserver" in window){var io=new IntersectionObserver(function(es
 /* accordion */
 $$(".acc-btn").forEach(function(b){b.addEventListener("click",function(){var p=b.nextElementSibling,o=b.getAttribute("aria-expanded")==="true";b.setAttribute("aria-expanded",!o);p.style.maxHeight=o?0:p.scrollHeight+"px";b.lastChild.textContent=o?"+":"-"})});
 /* modal */
-function modal(t){$("#modal-text").textContent=t;$("#modal").classList.add("open");$("#modal-x").focus()}
+function modal(t,title){$("#modal-title").textContent=title||"Thank you";$("#modal-text").textContent=t;$("#modal").classList.add("open");$("#modal-x").focus()}
 $("#modal-x").addEventListener("click",function(){$("#modal").classList.remove("open")});
 $("#modal").addEventListener("click",function(e){if(e.target.id==="modal")e.target.classList.remove("open")});
 /* lightbox */
@@ -76,6 +76,13 @@ if(count)count.textContent=visible+" / "+cards.length+" stories";
 if(empty)empty.hidden=visible>0;
 }
 filterButtons.forEach(function(button){button.addEventListener("click",function(){filterNews(button.dataset.newsfilter)})});
+var storyDetails={
+"Open day at the Community Future Lab":"Join us at the Community Future Lab for a free open day from 09:00 to 14:00. Visitors can tour the lab, meet facilitators and take part in short coding, solar-energy and making demonstrations.\n\nParents, learners, local businesses and community organisations are welcome. Bring an identification document if you would like to register for a programme. Contact the team through the enquiry page for accessibility or group-booking assistance.",
+"CODE intake: applications are open":"Applications are now open for the next twelve-week CODE cohort. The programme teaches HTML, CSS, JavaScript and Git through practical lessons, teamwork and a community web application project.\n\nSessions are available at different times during the week. Beginners are welcome, and applicants should have basic digital literacy and access to a device during programme sessions. Visit the enquiry page to check availability and submit an application.",
+"Solar training turns offcuts into a working demo":"GREEN programme participants recently completed a small solar photovoltaic demonstration using repurposed components and workshop offcuts. Under facilitator guidance, learners practised component identification, safe wiring, battery basics and basic fault checking.\n\nThe project demonstrates that practical environmental solutions can begin with inexpensive, locally available materials. Facilitators continue to emphasise safe installation practices and will never ask learners to work on live electrical systems.",
+"Sponsors back new lab equipment":"Local organisations have sponsored new devices, computers, tools and workshop safety equipment for the BASIC labs. The donation will expand hands-on learning and reduce waiting time for shared equipment during programmes.\n\nBASIC welcomes sponsorships of infrastructure, programme materials and equipment. Sponsors may contact the partnerships team through the enquiry page to discuss programme support, contribution options and recognition opportunities."
+};
+cards.forEach(function(card){var title=$("h3",card).textContent;function openStory(){modal(storyDetails[title]||card.textContent,title)}var read=document.createElement("button");read.type="button";read.className="btn news-read-more";read.textContent="Read full story";read.setAttribute("aria-haspopup","dialog");read.addEventListener("click",openStory);$("div",card).appendChild(read);card.addEventListener("click",function(e){if(!e.target.closest("button"))openStory()})});
 filterNews(new URLSearchParams(location.search).get("category")||"All");
 }
 var newsletter=$(".news-form");
