@@ -1,15 +1,17 @@
 (function(){
 var $=function(s,r){return(r||document).querySelector(s)},$$=function(s,r){return Array.from((r||document).querySelectorAll(s))};
+var FORM_ENDPOINT="";/* paste your Formspree URL here, e.g. https://formspree.io/f/xxxxxxxx */
 var DATA=[
-{id:"code",code:"CODE",name:"CODE: Coding & Software",cat:"Digital",dur:12,level:"Beginner",intake:"15 Feb 2026",desc:"HTML/CSS/JS, Git and project delivery for community apps."},
-{id:"ai",code:"AI",name:"AI: Artificial Intelligence Literacy",cat:"Digital",dur:8,level:"Intermediate",intake:"03 Mar 2026",desc:"Prompting, data cleaning, ethical use and small tools for local problems."},
-{id:"green",code:"GREEN",name:"GREEN: Solar & Circular Economy",cat:"Sustainability",dur:10,level:"Beginner",intake:"10 Mar 2026",desc:"Solar PV basics, e-waste repurposing and green entrepreneurship."},
-{id:"build",code:"BUILD",name:"BUILD: Makers & Urban Workshop",cat:"Making",dur:6,level:"Beginner",intake:"22 Feb 2026",desc:"Welding, woodwork and digital fabrication for local prototypes."},
-{id:"entrepreneur",code:"ENTREPRENEUR",name:"ENTREPRENEUR: Micro-Business Incubation",cat:"Enterprise",dur:16,level:"Intermediate",intake:"01 Apr 2026",desc:"Business model canvas, costing, market testing and funding readiness."},
-{id:"education",code:"EDUCATION",name:"EDUCATION: Tutor & Facilitator Track",cat:"Education",dur:12,level:"Advanced",intake:"08 Mar 2026",desc:"Train-the-trainer: pedagogy, facilitation and digital classroom tools."},
+{id:"code",code:"CODE",name:"CODE: Coding & Software",cat:"Digital",dur:12,level:"Beginner",intake:21,desc:"HTML/CSS/JS, Git and project delivery for community apps."},
+{id:"ai",code:"AI",name:"AI: Artificial Intelligence Literacy",cat:"Digital",dur:8,level:"Intermediate",intake:28,desc:"Prompting, data cleaning, ethical use and small tools for local problems."},
+{id:"green",code:"GREEN",name:"GREEN: Solar & Circular Economy",cat:"Sustainability",dur:10,level:"Beginner",intake:35,desc:"Solar PV basics, e-waste repurposing and green entrepreneurship."},
+{id:"build",code:"BUILD",name:"BUILD: Makers & Urban Workshop",cat:"Making",dur:6,level:"Beginner",intake:42,desc:"Welding, woodwork and digital fabrication for local prototypes."},
+{id:"entrepreneur",code:"ENTREPRENEUR",name:"ENTREPRENEUR: Micro-Business Incubation",cat:"Enterprise",dur:16,level:"Intermediate",intake:56,desc:"Business model canvas, costing, market testing and funding readiness."},
+{id:"education",code:"EDUCATION",name:"EDUCATION: Tutor & Facilitator Track",cat:"Education",dur:12,level:"Advanced",intake:49,desc:"Train-the-trainer: pedagogy, facilitation and digital classroom tools."},
 {id:"connect",code:"CONNECT",name:"CONNECT: Digital Inclusion & Access",cat:"Access",dur:4,level:"Beginner",intake:"Weekly",desc:"Device refurbishing, connectivity clinics and basic digital skills."}];
 var SLOTS={code:["Mon/Wed 09:00-12:00","Tue/Thu 14:00-17:00"],ai:["Mon 14:00-16:00","Fri 09:00-11:00"],green:["Wed 09:00-15:00"],build:["Tue/Thu 09:00-13:00"],entrepreneur:["Thu 10:00-13:00"],education:["Mon-Fri 08:00-12:00"],connect:["Sat 09:00-12:00"]};
-var PROGRAM_IMAGES={code:"code-editor.jpg",ai:"computer.jpg",green:"solar-energy.jpg",build:"machine.jpg",entrepreneur:"community-collaboration.jpg",education:"community-tutor.jpg",connect:"TOGETHER.jpg"};
+var PROGRAM_IMAGES={code:"code-editor.jpg",ai:"computer.jpg",green:"solar-energy.jpg",build:"machine.jpg",entrepreneur:"community-collaboration.jpg",education:"community-tutor.jpg",connect:"community-members-together.jpg"};
+var fmtIntake=function(v){if(typeof v!=="number")return v;return new Date(Date.now()+v*864e5).toLocaleDateString("en-ZA",{day:"2-digit",month:"short",year:"numeric"})};
 var esc=function(s){return s.replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})};
 /* nav */
 var tg=$(".nav-toggle");if(tg)tg.addEventListener("click",function(){var o=$("#nav").classList.toggle("open");tg.setAttribute("aria-expanded",o)});
@@ -36,47 +38,57 @@ if(list){var cat=$("#prog-cat");["All"].concat(DATA.map(function(d){return d.cat
 function render(){var q=$("#prog-search").value.trim().toLowerCase(),c=cat.value,s=$("#prog-sort").value;
 var r=DATA.filter(function(d){return(c==="All"||d.cat===c)&&(!q||(d.name+d.desc+d.code).toLowerCase().indexOf(q)>-1)}).sort(function(a,b){return s==="za"?b.name.localeCompare(a.name):s==="dur"?a.dur-b.dur:a.name.localeCompare(b.name)});
 var hl=function(t){t=esc(t);return q?t.replace(new RegExp("("+q.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")+")","ig"),"<mark>$1</mark>"):t};
-list.innerHTML=r.length?r.map(function(d){return'<article class="prog" id="'+d.id+'"><div><img class="prog-image" src="images/'+PROGRAM_IMAGES[d.id]+'" alt="'+esc(d.name)+' at BASIC"><span class="badge">'+d.code+'</span><p>'+d.cat+' | '+d.level+'<br>'+d.dur+' weeks | Intake '+d.intake+'</p></div><div><h3>'+hl(d.name)+'</h3><p>'+hl(d.desc)+'</p></div><div><a class="btn" href="enquiry.html?programme='+d.id+'&type=Register">Register</a><a class="btn ghost" href="enquiry.html?programme='+d.id+'">Volunteer</a></div></article>'}).join(""):"<p>No programmes match your search.</p>";
+list.innerHTML=r.length?r.map(function(d){return'<article class="prog" id="'+d.id+'"><div><img class="prog-image" src="images/'+PROGRAM_IMAGES[d.id]+'" alt="'+esc(d.name)+' at BASIC"><span class="badge">'+d.code+'</span><p>'+d.cat+' | '+d.level+'<br>'+d.dur+' weeks | Intake '+fmtIntake(d.intake)+'</p></div><div><h3>'+hl(d.name)+'</h3><p>'+hl(d.desc)+'</p></div><div><a class="btn" href="enquiry.html?programme='+d.id+'">Volunteer</a></div></article>'}).join(""):"<p>No programmes match your search.</p>";
 $("#prog-count").textContent=r.length+" / "+DATA.length+" programmes"}
 ["input","change"].forEach(function(ev){$(".tools").addEventListener(ev,render)});render()}
 /* validation */
 function check(el){var v=el.value,msg="",rules=(el.dataset.rules||"").split("|"),n=(el.labels&&el.labels[0]?el.labels[0].textContent:"Field");
 for(var i=0;i<rules.length&&!msg;i++){var r=rules[i];
 if(r==="required"&&!v.trim())msg=n+" is required";
+else if(r==="checked"&&!el.checked)msg="Please tick this box to continue";
 else if(r.indexOf("min:")===0&&v.length<+r.slice(4))msg="Must be at least "+r.slice(4)+" characters";
 else if(r.indexOf("max:")===0&&v.length>+r.slice(4))msg="Must be under "+r.slice(4)+" characters";
 else if(r==="email"&&v&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v))msg="Enter a valid email";
 else if(r==="sa-phone"&&v&&!/^(\+27|0)[6-8][0-9]{8}$/.test(v.replace(/[\s-]/g,"")))msg="Use SA format: 082 123 4567 or +27 82 123 4567";
 else if(r==="future-date"&&v&&new Date(v+"T23:59:59")<=new Date())msg="Date must be in the future"}
-var e=$("#"+el.id+"-e");if(e)e.textContent=msg;el.classList.toggle("invalid",!!msg);el.classList.toggle("valid",!msg&&!!v);return!msg}
+var e=$("#"+el.id+"-e");if(e)e.textContent=msg;el.classList.toggle("invalid",!!msg);el.classList.toggle("valid",!msg&&!!v&&el.type!=="checkbox");if(el.type==="checkbox")el.setAttribute("aria-invalid",!!msg);return!msg}
 function validate(f){var ok=true;$$("[data-rules]",f).forEach(function(el){if(el.closest("[hidden]"))return;if(!check(el))ok=false});return ok}
-$$("[data-rules]").forEach(function(el){el.addEventListener("blur",function(){check(el)})});
+$$("[data-rules]").forEach(function(el){el.addEventListener(el.type==="checkbox"||el.tagName==="SELECT"?"change":"blur",function(){check(el)})});
 /* enquiry */
 var ef=$("#enq-form");
 if(ef){var type="Volunteer",pq=new URLSearchParams(location.search).get("programme");if(pq&&SLOTS[pq])$("#e-prog").value=pq;
-$$(".tab").forEach(function(t){t.addEventListener("click",function(){$$(".tab").forEach(function(x){x.classList.remove("active")});t.classList.add("active");type=t.dataset.type;$("#vol-box").hidden=type!=="Volunteer"&&type!=="Register";$("#spon-box").hidden=type!=="Sponsor";$("#enq-result").hidden=true})});
-var tq=new URLSearchParams(location.search).get("type");if(tq){var tb=$$(".tab").filter(function(t){return t.dataset.type===tq})[0];if(tb)tb.click()}
-ef.addEventListener("submit",async function(e){e.preventDefault();if(!validate(ef))return;var out,n=$("#e-name").value,p=$("#e-prog").value.toUpperCase();
-if(type==="Volunteer"){var d=new Date();d.setMonth(d.getMonth()+1);out="Thank you "+n+"!\nProgramme: "+p+"\nNext intake: "+d.toLocaleDateString("en-ZA",{month:"long",year:"numeric"})+"\nAvailable slots:\n- "+SLOTS[$("#e-prog").value].join("\n- ")+"\nWe will reply within 48 hours at "+$("#e-email").value+"."}
-else if(type==="Register"){var ref="BSC-"+(p||"GEN")+"-"+Math.floor(1000+Math.random()*9000);out="Registration received, "+n+"!\nProgramme: "+p+"\nReference: "+ref+"\nPreferred start: "+$("#e-date").value+"\nAvailable slots:\n- "+SLOTS[$("#e-prog").value].join("\n- ")+"\nA confirmation will be sent to "+$("#e-email").value+" within 48 hours."}
+$$(".tab").forEach(function(t){t.addEventListener("click",function(){$$(".tab").forEach(function(x){x.classList.remove("active")});t.classList.add("active");type=t.dataset.type;$("#vol-box").hidden=type!=="Volunteer";$("#spon-box").hidden=type!=="Sponsor";$("#enq-result").hidden=true})});
+ef.addEventListener("submit",function(e){e.preventDefault();var okV=validate(ef),okA=true;if(type==="Volunteer"){okA=$$(".avail:checked",ef).length>0;$("#e-avail-e").textContent=okA?"":"Select at least one availability option"}else $("#e-avail-e").textContent="";if(!okV||!okA)return;var out,n=$("#e-name").value,p=$("#e-prog").value.toUpperCase();
+if(type==="Volunteer"){var d=new Date();d.setMonth(d.getMonth()+1);out="Thank you "+n+"!\nProgramme: "+p+"\nExperience: "+($("input[name=e-level]:checked")||{}).value+"\nAvailability: "+$$(".avail:checked",ef).map(function(x){return x.value}).join(", ")+"\nNext intake: "+d.toLocaleDateString("en-ZA",{month:"long",year:"numeric"})+"\nAvailable slots:\n- "+SLOTS[$("#e-prog").value].join("\n- ")+"\nWe will reply within 48 hours at "+$("#e-email").value+"."}
 else if(type==="Sponsor"){var base=+$("#s-type").value,m=Math.min(36,Math.max(1,parseInt($("#s-months").value)||12)),t=+$("#s-tier").value,tot=Math.round(base*m/12*t);
 out="Sponsorship estimate for "+n+"\nBase: R"+base.toLocaleString("en-ZA")+"/year | "+m+" months | tier x"+t+"\nTotal: R"+tot.toLocaleString("en-ZA")+"\n"+(m>=6?"Availability: immediate":"Availability: short-term, limited slots")}
 else out="Partnership enquiry received from "+n+".\nOur Partnerships Lead will reply within 48 hours at "+$("#e-email").value+".";
-var r=$("#enq-result");r.textContent=out;r.hidden=false;r.focus();
-try{var response=await fetch(ef.action,{method:"POST",body:new FormData(ef),headers:{Accept:"application/json"}});var payload={};try{payload=await response.json()}catch(ignore){payload.message=await response.text().catch(function(){return ""})}if(!response.ok)throw new Error(payload.error||payload.message||"Submission could not be sent.");var sent=payload.message||"Your enquiry was sent successfully.";r.textContent=sent;modal(sent)}catch(error){modal(out+"\nEmail delivery is unavailable right now; please try again or use the contact page.")};
-});
+var r=$("#enq-result");r.textContent=out;r.hidden=false;r.focus();modal(out)})}
+/* news filters and newsletter */
+var ng=$("#news-grid");
+if(ng){
+var cards=$$(".news-card",ng),filterButtons=$$("[data-newsfilter]"),count=$("#news-count"),empty=$("#news-empty");
+function filterNews(category){
+var visible=0;
+cards.forEach(function(card){var show=category=== "All" || card.dataset.cat===category;card.hidden=!show;if(show){visible++}});
+filterButtons.forEach(function(button){var selected=button.dataset.newsfilter===category;button.classList.toggle("active",selected);button.setAttribute("aria-pressed",selected?"true":"false")});
+if(count)count.textContent=visible+" / "+cards.length+" stories";
+if(empty)empty.hidden=visible>0;
 }
-/* newsletter */
-$$(".news-form").forEach(function(f){f.addEventListener("submit",function(e){e.preventDefault();if(!validate(f))return;var n=$("[name=nl-name]",f).value,m=$("[name=nl-email]",f).value;try{localStorage.setItem("basic-newsletter",m)}catch(x){}modal("Thanks "+n+"! "+m+" is subscribed to the BASIC newsletter.");f.reset();$$("input",f).forEach(function(i){i.classList.remove("valid","invalid")})})});
-/* news filter */
-var ng=$("#news-grid");if(ng){var nc=$$(".news-card",ng);function nf(c){var v=0;nc.forEach(function(a){var s=c==="All"||a.dataset.cat===c;a.hidden=!s;if(s)v++});$("#news-empty").hidden=v>0;$("#news-count").textContent=v+" / "+nc.length+" stories"}
-$$("[data-newsfilter]").forEach(function(b){b.addEventListener("click",function(){$$("[data-newsfilter]").forEach(function(x){x.classList.remove("active");x.setAttribute("aria-pressed","false")});b.classList.add("active");b.setAttribute("aria-pressed","true");nf(b.dataset.newsfilter)})});nf("All")}
+filterButtons.forEach(function(button){button.addEventListener("click",function(){filterNews(button.dataset.newsfilter)})});
+filterNews(new URLSearchParams(location.search).get("category")||"All");
+}
+var newsletter=$(".news-form");
+if(newsletter){newsletter.addEventListener("submit",function(e){e.preventDefault();if(!validate(newsletter))return;var name=$('[name="nl-name"]',newsletter).value,email=$('[name="nl-email"]',newsletter).value;try{localStorage.setItem("basic-newsletter",email)}catch(error){}modal("Thanks "+name+"! "+email+" has been added to the BASIC newsletter list.");newsletter.reset();$$("input",newsletter).forEach(function(input){input.classList.remove("valid","invalid")})})}
 /* contact */
 var cf=$("#contact-form");
-if(cf)cf.addEventListener("submit",async function(e){e.preventDefault();if(!validate(cf))return;
+if(cf)cf.addEventListener("submit",function(e){e.preventDefault();if(!validate(cf))return;
 var recipient="info@basicfuturelabs.org",sub="[BASIC "+$("#c-type").value+"] Message from "+$("#c-name").value,body="Name: "+$("#c-name").value+"\nEmail: "+$("#c-email").value+"\nPhone: "+($("#c-phone").value||"N/A")+"\nType: "+$("#c-type").value+"\n\n"+$("#c-msg").value;
-$("#mail-pre").textContent="To: "+recipient+"\nSubject: "+sub+"\n\n"+body;$("#mail-link").href="mailto:"+recipient+"?subject="+encodeURIComponent(sub)+"&body="+encodeURIComponent(body);$("#mail-out").hidden=false;
-try{var response=await fetch(cf.action,{method:"POST",body:new FormData(cf),headers:{Accept:"application/json"}});var payload={};try{payload=await response.json()}catch(ignore){payload.message=await response.text().catch(function(){return ""})}if(!response.ok)throw new Error(payload.error||payload.message||"Submission could not be sent.");$("#mail-pre").textContent=payload.message||"Your message was sent successfully.";$("#mail-out").focus()}catch(error){$("#mail-pre").textContent="Your message is ready below. Email delivery is unavailable right now, so please use the email-app fallback.";$("#mail-out").focus()}});
+var payload={name:$("#c-name").value,email:$("#c-email").value,phone:$("#c-phone").value,type:$("#c-type").value,message:$("#c-msg").value,newsletter:$("#c-news").checked,_subject:sub};
+var fallback=function(note){$("#mail-pre").textContent=(note?note+"\n\n":"")+"To: "+recipient+"\nSubject: "+sub+"\n\n"+body;$("#mail-link").href="mailto:"+recipient+"?subject="+encodeURIComponent(sub)+"&body="+encodeURIComponent(body);$("#mail-link").hidden=false;$("#mail-out").hidden=false;$("#mail-out").focus()};
+if(FORM_ENDPOINT){var btn=$("#c-send");btn.disabled=true;btn.textContent="Sending...";fetch(FORM_ENDPOINT,{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify(payload)}).then(function(r){if(!r.ok)throw 0;$("#mail-pre").textContent="Thank you "+payload.name+"! Your message was sent. We will reply within 2 working days at "+payload.email+".";$("#mail-link").hidden=true;$("#mail-out").hidden=false;$("#mail-out").focus();cf.reset();$$(".valid,.invalid",cf).forEach(function(x){x.classList.remove("valid","invalid")})}).catch(function(){fallback("We could not send your message automatically. Please send it with your email app:")}).then(function(){btn.disabled=false;btn.textContent="Send message"});return}
+fallback("Your message is ready. Open it in your email app to send:");});
+
 
 var pb=document.createElement("div");pb.className="progress";document.body.appendChild(pb);
 addEventListener("scroll",function(){var h=document.documentElement.scrollHeight-innerHeight;pb.style.width=(h>0?scrollY/h*100:0)+"%"},{passive:true});
