@@ -1,3 +1,7 @@
+# robots.txt for BASIC Community Future Labs
+# Applies to all search engine crawlers: index every page
 User-agent: *
 Allow: /
+
+# Sitemap location for search engines
 Sitemap: https://44xolo.github.io/BASIC/sitemap.xml

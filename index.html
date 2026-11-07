@@ -13,7 +13,7 @@
 <meta charset="UTF-8">
 <!-- UTF-8 means the page can show any letter or symbol (like &, é or quote marks) without turning into garbage. -->
 
-<meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: https:; script-src 'self' https://unpkg.com 'unsafe-inline'; style-src 'self' https://fonts.googleapis.com https://unpkg.com 'unsafe-inline'; font-src https://fonts.gstatic.com data:; connect-src 'self' https://formspree.io https://*.tile.openstreetmap.org; frame-ancestors 'none'"><meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <!-- This one makes the site fit a phone screen properly. Without it, phones show a tiny zoomed-out desktop page. -->
 
 <title>BASIC | Building Access, Skills, Innovation &amp; Community</title>
@@ -63,7 +63,7 @@
      so nobody stares at a blank space. -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Montserrat:wght@700;900&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
 <!-- Inter is for normal reading text. Montserrat is the chunky one for big headings.
      The numbers (400, 600, 800...) are how bold each version is. -->
 
@@ -127,7 +127,8 @@
       <a href="index.html" class="active" aria-current="page">Home</a>
       <!-- "active" highlights the page you're on. aria-current says the same thing to screen readers. -->
       <a href="about.html">About</a>
-      <a href="programmes.html">Programmes</a><a href="news.html">News</a>
+      <a href="programmes.html">Programmes</a>
+      <a href="news.html">News</a>
       <a href="enquiry.html">Enquiry</a>
       <a href="contact.html">Contact</a>
     </nav>
@@ -169,7 +170,7 @@
 
   <figure class="hero-image reveal">
     <!-- A figure is a picture with a caption that belongs to it. -->
-    <img src="images/basic-community-lab.jpg" alt="BASIC learners collaborating in a community future lab" fetchpriority="high" decoding="async">
+    <img src="images/basic-community-lab.jpg" alt="Crowd of people seen from above with the word Basic overlaid" fetchpriority="high" decoding="async">
     <!-- alt = words describing the picture, for people who can't see it or if it fails to load.
          fetchpriority="high" says "load this one first, it's the biggest thing on screen".
          decoding="async" lets the browser prepare the image without freezing the rest of the page. -->
@@ -235,24 +236,24 @@
 
   <section class="reveal" aria-labelledby="gallery-title">
     <h2 id="gallery-title">Gallery</h2>
-    <img class="gallery-animation" src="images/gallery-animation-small.gif" alt="Animated BASIC programme highlights showing coding, solar training and community collaboration" loading="lazy" decoding="async">
+    <img class="gallery-animation" src="images/gallery-animation.gif" alt="Animated BASIC gallery showing the lab in motion" loading="lazy" decoding="async">
     <!-- An animated GIF at the top of the gallery.
          loading="lazy" means the browser waits until you scroll near it before downloading it.
          That saves data and makes the first load faster, which matters a lot on phones. -->
     <div class="gallery-grid">
       <!-- The grid of photos. Clicking one opens the lightbox (the big viewer at the bottom of this file).
            Every photo has its own alt text describing what's in it. -->
-      <img src="images/community-collaboration.jpg" alt="Community members collaborating during a BASIC programme" loading="lazy" decoding="async">
-      <img src="images/code-editor.jpg" alt="Close-up of a code editor on a laptop" loading="lazy" decoding="async">
-      <img src="images/community-tutor.jpg" alt="A tutor guiding learners in the community lab" loading="lazy" decoding="async">
-      <img src="images/computer.jpg" alt="Learners using laptops in an AI literacy class" loading="lazy" decoding="async">
-      <img src="images/solar.jpg" alt="Learners using renewable-energy equipment during GREEN training" loading="lazy" decoding="async">
-      <img src="images/machine.jpg" alt="A learner working with equipment in the makers workshop" loading="lazy" decoding="async">
-      <img src="images/TOGETHER.jpg" alt="BASIC learners and community members working together" loading="lazy" decoding="async">
-      <img src="images/solar-energy.jpg" alt="Solar energy technology used in the BASIC GREEN programme" loading="lazy" decoding="async">
-      <img src="images/lo.webp" alt="BASIC logo" loading="lazy" decoding="async">
-      <img src="images/visual.jpg" alt="BASIC learners and tutors planning a community programme together" loading="lazy" decoding="async">
-      <img src="images/solar-training.jpg" alt="BASIC solar programme activities" loading="lazy" decoding="async">
+      <img src="images/community-collaboration.jpg" alt="Seven young people with arms around each other looking at a mountain view with cable cars" loading="lazy" decoding="async">
+      <img src="images/code-editor.jpg" alt="Monitors and a laptop showing code in a dark workspace" loading="lazy" decoding="async">
+      <img src="images/community-tutor.jpg" alt="Desk with laptops showing code, a sketch notebook and a water bottle" loading="lazy" decoding="async">
+      <img src="images/computer.jpg" alt="Desk setup with a curved monitor, keyboard and bonsai screen wallpaper" loading="lazy" decoding="async">
+      <img src="images/solar-panel-roof-installation.jpg" alt="Workers in hard hats installing solar panels on a rooftop" loading="lazy" decoding="async">
+      <img src="images/machine.jpg" alt="Close-up of a metal lathe cutting a steel part" loading="lazy" decoding="async">
+      <img src="images/community-members-together.jpg" alt="People seated around a table in a skyscraper room overlooking a city at night" loading="lazy" decoding="async">
+      <img src="images/solar-energy.jpg" alt="Rows of solar panels in a green field under a blue sky with clouds" loading="lazy" decoding="async">
+      <img src="images/basic-logo.png" alt="BASIC logo" loading="lazy" decoding="async">
+      <img src="images/glass-office-city-view.jpg" alt="Glass-walled office at sunset overlooking a city skyline" loading="lazy" decoding="async">
+      <img src="images/green-city-solar-future.jpg" alt="Illustration of a green futuristic city with plants, towers and airships" loading="lazy" decoding="async">
     </div>
   </section>
 
@@ -282,10 +283,6 @@
     <a class="btn ghost" href="contact.html">Contact us</a>
   </section>
 
-<section class="newsletter reveal" aria-labelledby="nl-title"><div><p class="kicker">STAY IN THE LOOP</p><h2 id="nl-title">Join the BASIC newsletter</h2><p>Programme intakes, lab events and community stories, sent to your inbox. No spam, unsubscribe any time.</p></div>
-<form class="form news-form" novalidate><div class="fg"><label for="nl-name">First name</label><input id="nl-name" name="nl-name" type="text" data-rules="required|min:2|max:40" autocomplete="given-name" aria-describedby="nl-name-e"><span class="field-error" id="nl-name-e" aria-live="polite"></span></div>
-<div class="fg"><label for="nl-email">Email</label><input id="nl-email" name="nl-email" type="email" data-rules="required|email" autocomplete="email" aria-describedby="nl-email-e"><span class="field-error" id="nl-email-e" aria-live="polite"></span></div>
-<button class="btn" type="submit">Subscribe</button></form></section>
 </main>
 
 <!-- Lightbox: opens a larger version of a selected gallery image. -->
@@ -341,7 +338,7 @@
       <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About Us</a></li>
-        <li><a href="programmes.html">Programmes</a></li><li><a href="news.html">News</a></li>
+        <li><a href="programmes.html">Programmes</a></li>
       </ul>
     </div>
     <div>

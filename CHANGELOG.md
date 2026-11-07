@@ -1,10 +1,13 @@
 # Changelog
 
-## 2026-11-06 — Proposal alignment (WEDE5020 Part 1)
-- Added `news.html` (Blog/News page) with category filter, linked from every nav and footer, and added to `sitemap.xml`.
-- Added newsletter sign-up (home and news pages) with validation and confirmation modal, in `js/part3.js`.
-- Added programme registration: Register button on each programme card and a Register tab on `enquiry.html` that returns a reference number.
-- Added Space Grotesk for statistics and innovation elements, per the proposal typography table.
+## 2026-11-07 — Rubric compliance: forms, SEO and images
+
+- `enquiry.html`: added required programme dropdown validation, volunteer availability checkboxes (at least one required), experience level radio buttons and a required consent checkbox; volunteer response now lists experience and availability.
+- `contact.html`: added required consent checkbox and optional newsletter checkbox; button renamed "Send message".
+- `js/part3.js`: added `checked` validation rule, select validation on change, rolling programme intake dates (previously fixed 2026 dates that had passed), and contact sending through `FORM_ENDPOINT` (Formspree) with a clear success message and automatic `mailto:` fallback.
+- `css/part3.css`: added styles for checkbox, radio and fieldset controls.
+- SEO: page-specific meta keywords on `programmes.html`, `enquiry.html` and `contact.html`; image files renamed with descriptive hyphenated names (for example `TOGETHER.jpg` to `community-members-together.jpg`) and all references updated; alt text rewritten to describe what each image shows.
+- Added `robots.txt` and `sitemap.xml` with live GitHub Pages URLs, and a site map section with `images/sitemap.png` in the README.
 
 ## 2026-11-05 — Feedback repository continuity
 - Linked this Part 3 repository to the original Part 2 repository at https://github.com/EMKNDW/wede5020-g2-2026-formative-2-part-2-44xolo.
